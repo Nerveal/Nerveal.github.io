@@ -1,40 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Happy birth day</title>
+    <title>Untuk Kamu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebcd;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #noBtn {
+            position: absolute;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="card">
-        <div class="imgbox">
-            <div class="bark"></div>
-                <img src="https://images.meesho.com/images/products/11926221/527b1_512.webp">
-            </div>
-            <div class="details">
-                <h4 class="color1">It's a day you were born</h4>
-                <h4 class="color2">(Happy Birth Day)</h4>
-                <p>Dear Aurel</p>
-                <p> You are my world </p>
-                <p>my sun when its daytime</p>
-                <p>my moonlight when the sky is dark</p>
-                <p>you give me warmth when its cold</p>
-                <p>i'm glad you were born to this world</p>
-                <p>your smile lits up the world</p>
-                <p>i hope those smile are for me alone</p>
-                <p class="text-right" >i love you and happy birthday</p>
-                <p class="text-right">Anam</p>
-            </div>
-        </div>
-    <script src="script.js"></script>
+    <div class="container">
+        <h1>Hai, Aku Punya Pertanyaan...</h1>
+        <p>Mau jadi pacarku? ❤</p>
+        <button onclick="alert('Yay! Aku senang banget! ❤')">Ya</button>
+        <button id="noBtn" onmouseover="moveButton()">Tidak</button>
+    </div><script>
+    function moveButton() {
+        var x = Math.random() * (window.innerWidth - 100);
+        var y = Math.random() * (window.innerHeight - 50);
+        document.getElementById("noBtn").style.left = x + "px";
+        document.getElementById("noBtn").style.top = y + "px";
+    }
+</script>
 
-
-           
 </body>
 </html>
