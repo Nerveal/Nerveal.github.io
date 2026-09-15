@@ -725,6 +725,8 @@ function startMastery() {
 function finishMastery(session) {
   const total = session.items.length;
   game.questSession = null;
+  game.scene = 'world';        /* penting: agar pemain tidak terkunci diam */
+  refreshPauseState();
   const score = game.finishMastery(session.correctCount, total);
   closeScreen('#quest');
   const passed = score >= MASTERY.passScore;
