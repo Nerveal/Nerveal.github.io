@@ -141,7 +141,11 @@ pada pengujian).
 
 ## 5. Pengujian (alpha / black box)
 
-Pengujian alpha (*black box testing*) mencakup:
+Panduan lengkap — termasuk 31 skenario uji manual siap diisi, uji kompatibilitas perangkat,
+cara memasang ke Android, dan panduan pengisian angket validasi — ada di
+**[PENGUJIAN.md](PENGUJIAN.md)**.
+
+Ringkasan cakupan pengujian:
 
 1. **Fungsional** — navigasi menu, pembuatan karakter, pergerakan dan tabrakan pemain, interaksi
    NPC dan meja misi, ketiga mode babak misi, penilaian bintang, penghitungan koin dan gaji,
@@ -151,8 +155,19 @@ Pengujian alpha (*black box testing*) mencakup:
 3. **Visual & audio** — konsistensi aset pixel art, keterbacaan teks, efek suara, dan musik latar
    (dapat dimatikan).
 
-Skrip uji otomatis (tanpa peramban) menjalankan seluruh alur permainan di atas DOM dan kanvas
-sungguhan, mulai dari kustomisasi karakter hingga adegan penutup, lalu memeriksa penyimpanan progres.
+### Uji otomatis
+
+Folder [`uji/`](uji/README.md) memuat **58 butir uji alpha otomatis** yang menjalankan alur
+permainan lengkap (kustomisasi karakter → 30 babak misi → promosi & gaji → lift → ensiklopedia →
+tes kompetensi → adegan penutup → pemulihan progres) di atas DOM dan kanvas sungguhan memakai
+`jsdom` + `@napi-rs/canvas`, tanpa peramban:
+
+```bash
+cd career-quest/uji
+npm install && npm run uji     # keluaran: ringkasan terminal + laporan uji/hasil-uji.md
+```
+
+Hasil terakhir: **58/58 butir uji berhasil (100%) tanpa error runtime**.
 
 ---
 

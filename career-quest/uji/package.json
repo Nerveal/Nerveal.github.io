@@ -1,0 +1,14 @@
+{
+  "name": "career-quest-uji",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Perkakas pengujian alpha (black box) otomatis untuk game edukasi Career Quest",
+  "scripts": {
+    "uji": "node uji-otomatis.mjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^0.1.52",
+    "jsdom": "^25.0.1"
+  }
+}
