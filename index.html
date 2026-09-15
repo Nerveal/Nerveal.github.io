@@ -1,54 +1,179 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Kamu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffebcd;
-            padding: 50px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-        }
-        h1 {
-            color: #ff4081;
-        }
-        button {
-            background: #ff4081;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        #noBtn {
-            position: absolute;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Quest — Game Edukasi RPG Visualisasi Profesi Informatika</title>
+<meta name="description" content="Career Quest: game edukasi RPG visualisasi 10 profesi bidang Informatika untuk siswa kelas X (Fase E). Produk penelitian pengembangan model MDLC Luther-Sutopo.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%232d61ac'/><rect x='4' y='4' width='8' height='8' fill='%23eef2f9'/></svg>">
+<style>
+  :root {
+    --ink: #12141c;
+    --panel: #222741;
+    --line: #4a5480;
+    --text: #eef2f9;
+    --muted: #a6aecb;
+    --blue: #3f7fd6;
+    --blue2: #2b5fa4;
+    --yellow: #f2c94c;
+    --cyan: #48c7d8;
+    --green: #5cc46b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 50% -10%, #1d2942 0%, #0c0e16 70%);
+    color: var(--text);
+    font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 26px 18px 60px; }
+  header { text-align: center; margin-bottom: 26px; }
+  .badge {
+    display: inline-block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink); background: var(--yellow); padding: 3px 10px; border-radius: 3px;
+    box-shadow: 0 3px 0 #8a6f10; margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(30px, 7vw, 58px); margin: 0 0 8px; letter-spacing: .1em; color: var(--yellow);
+    text-shadow: 0 4px 0 #8a6f10, 0 7px 0 rgba(0, 0, 0, .5);
+  }
+  .tagline { color: var(--muted); margin: 0 auto 22px; max-width: 640px; font-size: .95rem; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; text-decoration: none; color: var(--text);
+    background: var(--panel); border: 3px solid var(--line); border-radius: 4px;
+    padding: 12px 22px; font-size: .9rem; box-shadow: 0 5px 0 rgba(0, 0, 0, .45);
+    transition: transform .06s ease, background .12s ease;
+  }
+  .btn:hover { background: #353c60; border-color: #7f8cc4; }
+  .btn:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0, 0, 0, .45); }
+  .btn.primary { background: var(--blue2); border-color: #6ea3ea; font-size: 1rem; padding: 14px 30px; }
+  .btn.primary:hover { background: var(--blue); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 34px 0; }
+  .card { background: var(--panel); border: 3px solid var(--line); border-radius: 6px; padding: 16px; }
+  .card h3 { margin: 0 0 6px; font-size: .95rem; color: var(--cyan); }
+  .card p { margin: 0; font-size: .84rem; color: var(--muted); }
+  h2 { font-size: 1.1rem; color: var(--yellow); letter-spacing: .05em; margin: 34px 0 12px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  figure { margin: 0; background: var(--panel); border: 3px solid var(--line); border-radius: 6px; padding: 10px; }
+  figure img {
+    display: block; width: 100%; height: auto; border: 2px solid #0c0e16; border-radius: 3px;
+    image-rendering: pixelated;
+  }
+  figcaption { font-size: .78rem; color: var(--muted); margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; margin-top: 8px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #1a2036; color: var(--yellow); font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; }
+  tr:nth-child(even) td { background: rgba(255, 255, 255, .02); }
+  .note {
+    background: #1a2036; border-left: 4px solid var(--cyan); padding: 12px 14px;
+    font-size: .84rem; border-radius: 3px; margin-top: 14px;
+  }
+  footer { margin-top: 40px; text-align: center; color: #79839f; font-size: .78rem; }
+  footer a { color: var(--cyan); }
+  code { background: #1a2036; padding: 1px 5px; border-radius: 3px; font-size: .82em; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hai, Aku Punya Pertanyaan...</h1>
-        <p>Mau jadi pacarku? ❤</p>
-        <button onclick="alert('Yay! Aku senang banget! ❤')">Ya</button>
-        <button id="noBtn" onmouseover="moveButton()">Tidak</button>
-    </div><script>
-    function moveButton() {
-        var x = Math.random() * (window.innerWidth - 100);
-        var y = Math.random() * (window.innerHeight - 50);
-        document.getElementById("noBtn").style.left = x + "px";
-        document.getElementById("noBtn").style.top = y + "px";
-    }
-</script>
+<div class="wrap">
 
+  <header>
+    <span class="badge">Produk Penelitian Pengembangan &middot; MDLC Luther&ndash;Sutopo</span>
+    <h1>CAREER QUEST</h1>
+    <p class="tagline">
+      Game edukasi <strong>RPG</strong> sebagai media visualisasi profesi bidang Informatika untuk
+      siswa kelas X (Fase E). Jelajahi 10 divisi profesi di tiga lantai perusahaan teknologi
+      <em>TechCorp</em>, selesaikan misi, kumpulkan bintang, dan temukan kariermu.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="career-quest/index.html">▶ Mainkan Sekarang</a>
+      <a class="btn" href="career-quest/README.md">Dokumentasi</a>
+    </div>
+  </header>
+
+  <div class="cards">
+    <div class="card">
+      <h3>10 Profesi Informatika</h3>
+      <p>IT Support, Web Developer, Graphic Designer, Network Engineer, Database Administrator,
+        Data Analyst, Software Engineer, UI/UX Designer, Cyber Security, dan AI Specialist.</p>
+    </div>
+    <div class="card">
+      <h3>30 Misi Interaktif</h3>
+      <p>Tiga babak per profesi dengan mode simulasi langkah, kuis pemahaman, dan penyusunan alur kerja.</p>
+    </div>
+    <div class="card">
+      <h3>Ensiklopedia Karier</h3>
+      <p>Setiap misi membuka kartu berisi deskripsi tugas, jurusan kuliah, sertifikasi, dan jalur karier.</p>
+    </div>
+    <div class="card">
+      <h3>Ringan &amp; Offline</h3>
+      <p>Seluruh aset pixel art dan efek suara dibangkitkan secara prosedural: tanpa berkas eksternal,
+        dapat dijalankan tanpa internet.</p>
+    </div>
+  </div>
+
+  <h2>Tangkapan Layar</h2>
+  <div class="shots">
+    <figure>
+      <img src="career-quest/asets/tangkapan-layar-judul.png" alt="Layar judul Career Quest: siluet gedung kantor dan karakter berjalan">
+      <figcaption>Layar judul &mdash; animasi gedung kantor dan latar chiptune.</figcaption>
+    </figure>
+    <figure>
+      <img src="career-quest/asets/tangkapan-layar-lantai1.png" alt="Lantai 1 kantor terbuka dengan meja kerja dan penanda misi">
+      <figcaption>Lantai 1 &mdash; Pondasi Digital: resepsionis, meja kerja bertanda &ldquo;!&rdquo;, dan ruang rapat.</figcaption>
+    </figure>
+    <figure>
+      <img src="career-quest/asets/tangkapan-layar-lantai2.png" alt="Lantai 2 dengan rak server dan ruang data">
+      <figcaption>Lantai 2 &mdash; Infrastruktur &amp; Data: rak server, lemari berkas, dan ruang data.</figcaption>
+    </figure>
+    <figure>
+      <img src="career-quest/asets/tangkapan-layar-lantai3.png" alt="Lantai 3 laboratorium inovasi dengan empat meja profesi spesialis">
+      <figcaption>Lantai 3 &mdash; Spesialisasi &amp; Intelegensia: laboratorium inovasi TechCorp.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Pemetaan Kurikulum (Fase E)</h2>
+  <table>
+    <tr><th>Komponen Kurikulum</th><th>Implementasi di dalam game</th></tr>
+    <tr>
+      <td>Deskripsi Umum Fase E &mdash; wawasan profesi informatika<br>
+        <span style="color:var(--muted)">SK Kepala BSKAP No. 032/H/KR/2024</span></td>
+      <td>Konsep RPG: pemain berperan sebagai staf magang (<em>role-play</em>) pada 10 divisi berbeda.</td>
+    </tr>
+    <tr>
+      <td>Elemen Dampak Sosial Informatika (DSI) &mdash; aspek ekonomi</td>
+      <td>Sistem ekonomi: koin per misi, gaji bulanan ilustratif, dan catatan belajar pada setiap promosi.</td>
+    </tr>
+    <tr>
+      <td>Tujuan Pembelajaran Bab 8 &mdash; rencana studi lanjut dan karier<br>
+        <span style="color:var(--muted)">Buku Informatika Kelas X (Mushthofa dkk., 2019)</span></td>
+      <td>Fitur <strong>Ensiklopedia Karier</strong>: jurusan kuliah, sertifikasi, dan jalur karier setiap profesi.</td>
+    </tr>
+    <tr>
+      <td>Elemen Praktik Lintas Bidang (PLB)</td>
+      <td>Tiga mode misi: penyusunan prosedur kerja, pengujian konsep, dan dokumentasi solusi.</td>
+    </tr>
+  </table>
+
+  <div class="note">
+    <strong>Cara bermain:</strong> gunakan <code>W A S D</code> atau tombol panah untuk berjalan,
+    tombol <code>A</code>/<code>Spasi</code> untuk berbicara dan berinteraksi, dan <code>Esc</code>
+    untuk menjeda. Pada perangkat sentuh, joystick dan tombol aksi muncul otomatis.
+    Setiap divisi dianggap tuntas bila ketiga babaknya minimal <strong>Bintang 2 (★★☆)</strong> &mdash;
+    semua divisi di satu lantai harus tuntas untuk naik jabatan dan membuka lantai berikutnya.
+  </div>
+
+  <footer>
+    <p>
+      Penelitian pengembangan oleh <strong>Sakirul Anam</strong> (220631100118) &middot;
+      Program Studi Pendidikan Informatika, Fakultas Keguruan dan Ilmu Pendidikan,
+      Universitas Trunojoyo Madura, 2025.
+    </p>
+    <p>Halaman lain: <a href="untuk-kamu.html">untuk-kamu.html</a>.</p>
+  </footer>
+
+</div>
 </body>
 </html>
