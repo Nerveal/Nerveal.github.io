@@ -1,0 +1,9 @@
+# Perkakas pengujian (perkakas dev, tidak dipakai aplikasi)
+career-quest/uji/node_modules/
+career-quest/uji/package-lock.json
+career-quest/uji/hasil-uji.md
+career-quest/uji/tangkapan/
+
+# Berkas sistem
+.DS_Store
+Thumbs.db

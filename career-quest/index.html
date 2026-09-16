@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a2a44">
+<meta name="description" content="Career Quest - game edukasi RPG visualisasi profesi bidang Informatika untuk siswa kelas X (Fase E). Dikembangkan dengan model MDLC Luther-Sutopo.">
+<title>Career Quest - Game Edukasi RPG Visualisasi Profesi Informatika</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23243b5e'/><rect x='3' y='4' width='10' height='7' fill='%23bfe0f2'/><rect x='6' y='11' width='4' height='2' fill='%23f2c14e'/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============================ PANGGUNG ============================= -->
+  <div id="stagebox">
+    <canvas id="stage" width="640" height="384" aria-label="Area permainan Career Quest"></canvas>
+
+    <!-- Label Scene (Mode Presentasi) -->
+    <div id="scene-label" class="scene-label" hidden>Scene 01: Judul &amp; Menu Utama</div>
+
+    <!-- HUD -->
+    <div id="hud" class="layer" hidden>
+      <div class="hud-left">
+        <div class="chip level" id="hud-level">Lantai 1</div>
+        <div class="chip rank" id="hud-rank">Junior Intern</div>
+        <div class="chip" id="hud-objective">0/3 divisi tuntas</div>
+      </div>
+      <div class="hud-right">
+        <div class="chip gold" id="hud-gold" title="Gold dari misi &amp; gaji">0 G</div>
+        <div class="chip sal" id="hud-salary" title="Gaji yang sudah diterima">Rp 0</div>
+        <button class="iconbtn" id="btn-book" title="Ensiklopedia Karier">BUKU</button>
+        <button class="iconbtn" id="btn-pause" title="Jeda (Esc)">II</button>
+      </div>
+    </div>
+
+    <!-- Petunjuk interaksi -->
+    <div id="prompt" class="layer" hidden><span class="key">A</span><span id="prompt-text"></span></div>
+
+    <!-- Kontrol sentuh -->
+    <div id="touch" class="layer" hidden>
+      <div class="dpad">
+        <button class="tbtn up" data-dir="up" aria-label="Atas">&#9650;</button>
+        <button class="tbtn left" data-dir="left" aria-label="Kiri">&#9664;</button>
+        <button class="tbtn right" data-dir="right" aria-label="Kanan">&#9654;</button>
+        <button class="tbtn down" data-dir="down" aria-label="Bawah">&#9660;</button>
+      </div>
+      <button class="tbtn abtn" data-act="a" aria-label="Aksi">A</button>
+    </div>
+
+    <!-- Kotak dialog gaya visual novel -->
+    <div id="dialogue" class="layer" hidden>
+      <div class="portrait" id="dlg-portrait"></div>
+      <div class="box">
+        <div class="who" id="dlg-who">Narator</div>
+        <p class="text" id="dlg-text"></p>
+        <div class="cont">Lanjut <span class="key">A</span> / ketuk</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ SCREEN =============================== -->
+  <section class="screen" id="screen-title">
+    <div class="panel title-panel">
+      <div class="title-art" id="title-art"></div>
+      <h1 class="game-title"><span>CAREER QUEST</span></h1>
+      <p class="game-sub">(Simulasi Karir IT)</p>
+      <div class="title-actions">
+        <button class="btn orange big" id="btn-new">MULAI</button>
+        <button class="btn iron big" id="btn-continue">LANJUTKAN</button>
+        <button class="btn iron big" id="btn-guide">PETUNJUK</button>
+        <button class="btn red big" id="btn-exit">KELUAR</button>
+      </div>
+      <button class="btn link" id="btn-rubric">Kurikulum &amp; Rubrik Penilaian</button>
+      <p class="meta" id="title-meta"></p>
+    </div>
+    <p class="credit">Penelitian pengembangan oleh Sakirul Anam (220631100118) &middot; Pendidikan Informatika, Universitas Trunojoyo Madura</p>
+  </section>
+
+  <section class="screen" id="screen-char" hidden>
+    <div class="panel wide">
+      <h2>Kustomisasi Karakter</h2>
+      <p class="muted">Tentukan penampilan karaktermu. Item kostumisasi (rambut, jaket, sepatu, aksesori) dapat dibeli di Shop pada menu Jeda.</p>
+      <div class="char-wrap">
+        <div class="char-preview"><canvas id="char-canvas" width="168" height="150"></canvas></div>
+        <div class="char-form" id="char-form"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn orange" id="char-save">MULAI BERTUGAS</button>
+        <button class="btn" id="char-cancel">KEMBALI</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-shop" hidden>
+    <div class="panel wide">
+      <header class="shop-head">
+        <h2>Shop Kostumisasi</h2>
+        <div class="chip gold" id="shop-gold">0 G</div>
+      </header>
+      <div class="shop-wrap">
+        <div class="shop-left">
+          <div class="shop-tabs" id="shop-tabs"></div>
+          <div class="shop-list" id="shop-list"></div>
+        </div>
+        <aside class="shop-right">
+          <div class="shop-hero" id="shop-hero"></div>
+          <button class="btn iron" id="shop-char">RIAS ULANG KARAKTER</button>
+          <p class="muted small">Harga mengikuti mockup desain penelitian. Gold diperoleh dari misi, Tes Kompetensi, dan Slip Gaji.</p>
+        </aside>
+      </div>
+      <div class="modal-actions">
+        <button class="btn primary" id="shop-close">TUTUP</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-guide" hidden>
+    <div class="panel wide">
+      <h2 id="guide-title">Panduan</h2>
+      <div id="guide-body"></div>
+      <div class="modal-actions">
+        <button class="btn" id="guide-prev">SEBELUMNYA</button>
+        <button class="btn orange" id="guide-next">BERIKUTNYA</button>
+        <button class="btn" id="guide-close">TUTUP</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-ency" hidden>
+    <div class="panel wide">
+      <h2>Ensiklopedia Karier</h2>
+      <p class="muted">Kartu profesi terbuka setiap kali kamu menuntaskan sebuah misi. Isi kartu diadaptasi dari Tabel 2.2 dan Tabel 3.2 skripsi.</p>
+      <div class="ency-wrap">
+        <div class="ency-grid" id="ency-grid"></div>
+        <div class="ency-detail" id="ency-detail"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn iron" id="ency-mastery">TES KOMPETENSI KARIER</button>
+        <button class="btn primary" id="ency-close">TUTUP</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-pause" hidden>
+    <div class="panel">
+      <h2>Menu Jeda</h2>
+      <div class="pause-stats" id="pause-stats"></div>
+      <div class="modal-actions column">
+        <button class="btn orange" id="pause-resume">LANJUT BERMAIN</button>
+        <button class="btn iron" id="pause-shop">SHOP KOSTUMISASI</button>
+        <button class="btn" id="pause-char">RIAS ULANG KARAKTER</button>
+        <button class="btn" id="pause-ency">ENSIKLOPEDIA KARIER</button>
+        <button class="btn" id="pause-guide">PANDUAN</button>
+        <button class="btn" id="pause-present">Mode Presentasi: AKTIF</button>
+        <button class="btn" id="pause-sound">Suara: AKTIF</button>
+        <button class="btn" id="pause-music">Musik: MATI</button>
+        <button class="btn danger" id="pause-reset">ULANG PROGRES</button>
+        <button class="btn" id="pause-tomap">KEMBALI KE MENU UTAMA</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="quest" hidden>
+    <div class="panel wide quest-panel">
+      <header class="quest-head">
+        <div class="quest-icon" id="quest-icon"></div>
+        <div class="quest-title-wrap">
+          <h2 id="quest-title">Misi</h2>
+          <p class="muted" id="quest-prof"></p>
+        </div>
+        <div class="quest-errors" id="quest-errors">Kesalahan: 0</div>
+      </header>
+      <p class="quest-brief" id="quest-brief"></p>
+      <div class="device" id="device">
+        <div class="device-bar"><span class="dot red"></span><span class="dot gold"></span><span class="dot teal"></span><span class="device-label" id="device-label">PERANGKAT</span></div>
+        <div class="device-screen"><div id="quest-body"></div></div>
+        <div class="device-stand"></div>
+      </div>
+      <footer class="modal-actions" id="quest-actions"></footer>
+    </div>
+  </section>
+
+  <section class="screen" id="modal" hidden>
+    <div class="panel wide">
+      <h2 id="modal-title"></h2>
+      <p class="muted" id="modal-sub"></p>
+      <div id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </section>
+
+  <div id="toasts"></div>
+
+  <!-- ============================ BOOT ================================= -->
+  <div id="boot">
+    <div class="boot-inner">
+      <div class="boot-logo">CAREER QUEST</div>
+      <div class="boot-bar"><span></span></div>
+      <p id="boot-msg">Menyiapkan aset pixel art&hellip;</p>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
