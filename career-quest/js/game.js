@@ -11,7 +11,7 @@
 
 import {
   TILE, VIEW_W, VIEW_H, PAL, CHAR_W, CHAR_H,
-  drawTile, drawProp, drawChar, drawMarker, drawSparkle, drawStar, drawText, px
+  drawTile, drawProp, drawChar, drawMarker, drawSparkle, drawStar, drawText, px, PROP_SOLID
 } from './art.js';
 import {
   PROFESSIONS, PROF_MAP, LEVELS, LEVEL_MAP, ECONOMY, PAYSLIPS, SHOP_ITEMS,
@@ -467,7 +467,8 @@ export class Game {
     /* daftar objek, diurutkan berdasarkan sumbu Y (semakin bawah semakin akhir) */
     const list = [];
     (map.props || []).forEach((p, idx) => {
-      const size = { w: 1, h: 1 };
+      /* ukuran footprint sebenarnya dipakai untuk mengurutkan tinggi gambar */
+      const size = PROP_SOLID[p.k] || { w: 1, h: 1 };
       list.push({
         y: (p.y + (size.h || 1)) * TILE, order: p.y * 1000 + p.x + idx * 0.001,
         fn: () => drawProp(ctx, p.k, p.x * TILE, p.y * TILE, this.time)
@@ -578,13 +579,30 @@ export class Game {
     ctx.fillStyle = PAL.off;
     ctx.fillRect(270, groundY - 80, 110, 10);
 
-    /* trotoar & taman */
+    /* papan nama perusahaan di atas pintu masuk */
+    ctx.fillStyle = PAL.navy3;
+    ctx.fillRect(268, groundY - 108, 114, 22);
+    drawText(ctx, 'TECHCORP', VIEW_W / 2, groundY - 96, {
+      size: 11, color: PAL.gold3, align: 'center', outlineColor: PAL.navy3, outlineWidth: 3
+    });
+
+    /* jalan, marka, dan trotoar */
+    ctx.fillStyle = PAL.gray2;
+    ctx.fillRect(0, groundY + 26, VIEW_W, 28);
+    ctx.fillStyle = PAL.white;
+    for (let i = 0; i < 10; i++) ctx.fillRect(14 + i * 66, groundY + 38, 34, 4);
     ctx.fillStyle = PAL.floor2;
-    ctx.fillRect(0, groundY, VIEW_W, 54);
+    ctx.fillRect(0, groundY, VIEW_W, 26);
     ctx.fillStyle = PAL.floorLine;
     ctx.fillRect(0, groundY, VIEW_W, 4);
     ctx.fillStyle = PAL.green2;
-    ctx.fillRect(0, groundY + 40, VIEW_W, 14);
+    ctx.fillRect(0, groundY + 58, VIEW_W, 8);
+    /* tiang lampu */
+    for (let i = 0; i < 3; i++) {
+      const lx = 96 + i * 220;
+      px(ctx, lx, groundY - 34, 4, 34, PAL.iron2);
+      px(ctx, lx - 6, groundY - 40, 16, 6, PAL.gold3);
+    }
     for (let i = 0; i < 6; i++) {
       const bx = 30 + i * 110;
       px(ctx, bx, groundY - 30, 6, 30, PAL.wood3);
@@ -595,7 +613,7 @@ export class Game {
     /* karakter pemain berjalan di depan gedung */
     const pcfg = profileToChar(this.state.profile);
     const walkX = 40 + ((t * 26) % (VIEW_W - 60));
-    drawChar(ctx, pcfg, Math.round(walkX), groundY - 6, { dir: 'right', moving: true, step: Math.floor(t * 7) % 4 });
+    drawChar(ctx, pcfg, Math.round(walkX), groundY - 4, { dir: 'right', moving: true, step: Math.floor(t * 7) % 4 });
   }
 
   /* ------------------------ DIALOG & PESAN ----------------------------- */
