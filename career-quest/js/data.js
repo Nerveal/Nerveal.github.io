@@ -35,7 +35,7 @@ export const PROFESSIONS = [
       'Tugasku memberi dukungan teknis langsung ke pengguna: mulai dari PC yang mati sampai aplikasi yang error.',
       'Kalau ada karyawan yang panik karena komputernya bermasalah, aku orang pertama yang mereka cari. Siap ikut bertugas?'
     ],
-    char: { skin: PAL.skin2, hair: PAL.hairB, hairStyle: 'short', top: PAL.orange, topDark: PAL.orange2, pants: PAL.ink3, shoes: PAL.dark, acc: 'wrench' },
+    char: { skin: PAL.skin2, hair: PAL.hairB, hairStyle: 'short', shirt: PAL.orange, shirtDark: PAL.orange2, jacket: 'vest', pants: PAL.denim, pants2: PAL.denim2, shoes: 'boot', accessory: null },
     duty: 'Memberikan dukungan teknis langsung kepada pengguna terkait masalah perangkat keras dan perangkat lunak sehari-hari.',
     duties: [
       'Menangani keluhan perangkat pengguna lewat sistem tiket',
@@ -111,7 +111,7 @@ export const PROFESSIONS = [
       'Aku membangun dan merawat situs perusahaan, mulai dari tampilan di layar sampai logika di baliknya.',
       'Coba bayangkan: halaman yang kamu buka di HP dan di laptop bisa terlihat rapi karena kerja Web Developer. Yuk bantu aku membereskan halaman profil perusahaan!'
     ],
-    char: { skin: PAL.skin, hair: PAL.hairY, hairStyle: 'long', top: PAL.teal, topDark: PAL.teal2, pants: PAL.ink3, shoes: PAL.dark, acc: 'glasses' },
+    char: { skin: PAL.skin, hair: PAL.hairY, hairStyle: 'pony', shirt: PAL.teal, shirtDark: PAL.teal2, jacket: 'hoodie', pants: PAL.denim, pants2: PAL.denim2, shoes: 'sneaker', accessory: 'glasses' },
     duty: 'Bertanggung jawab atas pembuatan dan pemeliharaan situs web, mulai dari tampilan (front-end) hingga logika server dan basis data (back-end).',
     duties: [
       'Menyusun struktur halaman dengan HTML dan tampilan dengan CSS',
@@ -187,7 +187,7 @@ export const PROFESSIONS = [
       'Aku membuat konten visual: poster, banner, sampai ikon di dalam aplikasi.',
       'Desain yang baik bukan hanya cantik, tapi menyampaikan pesan dengan jelas. Ayo bantu aku membuat poster kampanye perusahaan hari ini!'
     ],
-    char: { skin: PAL.skin3, hair: PAL.hairP, hairStyle: 'spiky', top: PAL.pink, topDark: '#c95f88', pants: PAL.purple2, shoes: PAL.dark, acc: 'palette' },
+    char: { skin: PAL.skin3, hair: PAL.hairP, hairStyle: 'curly', shirt: PAL.carpetR, shirtDark: PAL.carpetR2, jacket: null, pants: PAL.carpetP2, pants2: PAL.carpetP2, shoes: 'sneaker', accessory: null },
     duty: 'Menciptakan konten visual digital menggunakan perangkat lunak desain untuk mendukung kebutuhan komunikasi visual dalam produk teknologi.',
     duties: [
       'Menerjemahkan pesan menjadi desain yang komunikatif',
@@ -265,7 +265,7 @@ export const PROFESSIONS = [
       'Aku merancang dan menjaga jaringan kantor supaya semua komputer bisa saling terhubung dengan aman.',
       'Kalau jaringan putus, satu gedung bisa berhenti bekerja. Itulah kenapa pekerjaan ini harus teliti. Siap ikut pengecekan?'
     ],
-    char: { skin: PAL.skin2, hair: PAL.hairB, hairStyle: 'cap', top: PAL.green, topDark: PAL.green2, pants: PAL.ink3, shoes: PAL.dark, acc: 'cable' },
+    char: { skin: PAL.skin2, hair: PAL.hairB, hairStyle: 'cap', shirt: PAL.green, shirtDark: PAL.green2, jacket: 'vest', pants: PAL.denim, pants2: PAL.denim2, shoes: 'boot', accessory: null },
     duty: 'Merancang, mengimplementasikan, dan mengelola infrastruktur jaringan komputer (LAN/WAN) untuk menjamin konektivitas dan keamanan data.',
     duties: [
       'Merancang topologi dan skema alamat IP jaringan',
@@ -341,7 +341,7 @@ export const PROFESSIONS = [
       'Semua data penting perusahaan - pelanggan, transaksi, laporan - saya jaga di dalam basis data.',
       'Tugas saya memastikan data aman, rapi, dan tetap cepat diakses. Hari ini pencarian data pelanggan terasa melambat, ayo kita selidiki!'
     ],
-    char: { skin: PAL.skin3, hair: PAL.hairD, hairStyle: 'short', top: PAL.blue2, topDark: '#1f4a85', pants: PAL.ink2, shoes: PAL.dark2, acc: 'folder' },
+    char: { skin: PAL.skin3, hair: PAL.hairD, hairStyle: 'short', shirt: PAL.carpetB, shirtDark: PAL.carpetB2, jacket: 'blazer', pants: PAL.ink2, pants2: PAL.ink, shoes: 'formal', accessory: null },
     duty: 'Merancang kapasitas penyimpanan data, mengamankan basis data, serta memastikan data dapat diakses dengan cepat dan efisien oleh pengguna yang berwenang.',
     duties: [
       'Merancang struktur tabel dan hubungan antar data',
@@ -394,7 +394,7 @@ export const PROFESSIONS = [
         brief: 'Basis data lama akan dipindahkan ke server baru tanpa kehilangan data. Susun urutan kerjanya!',
         mode: 'order',
         order: [
-          'Rancang struktur tabel dan hubungngan antar data',
+          'Rancang struktur tabel dan hubungan antar data',
           'Tentukan tipe data dan kunci utama (primary key)',
           'Isi data lalu atur aturan keamanan (constraint)',
           'Atur hak akses pengguna berdasarkan peran',
@@ -417,7 +417,7 @@ export const PROFESSIONS = [
       'Aku mengubah tumpukan angka menjadi cerita yang bisa dipakai pimpinan untuk mengambil keputusan.',
       'Setiap bulan aku menyiapkan laporan penjualan. Datanya banyak dan berantakan, tapi di situlah tantangannya. Yuk kita kerjakan bersama!'
     ],
-    char: { skin: PAL.skin, hair: PAL.hairB, hairStyle: 'short', top: PAL.lime, topDark: '#87b336', pants: PAL.gray2, shoes: PAL.dark, acc: 'tablet' },
+    char: { skin: PAL.skin, hair: PAL.hairB, hairStyle: 'bob', shirt: PAL.carpetG, shirtDark: PAL.carpetG2, jacket: null, pants: PAL.gray2, pants2: PAL.gray, shoes: 'sneaker', accessory: null },
     duty: 'Mengumpulkan, mengolah, dan menganalisis data untuk menghasilkan wawasan (insight) yang berguna bagi pengambilan keputusan bisnis perusahaan.',
     duties: [
       'Membersihkan data agar siap dianalisis',
@@ -495,7 +495,7 @@ export const PROFESSIONS = [
       'Aku menulis kode untuk membangun aplikasi yang dipakai ribuan orang setiap hari.',
       'Menulis kode itu hanya separuh pekerjaan - separuh lainnya menguji dan memperbaiki. Ayo bantu aku membereskan fitur login yang masih bermasalah!'
     ],
-    char: { skin: PAL.skin2, hair: PAL.hairD, hairStyle: 'spiky', top: PAL.ink3, topDark: PAL.ink2, pants: PAL.ink2, shoes: PAL.dark2, acc: 'hoodie' },
+    char: { skin: PAL.skin2, hair: PAL.hairD, hairStyle: 'spiky', shirt: PAL.ink3, shirtDark: PAL.ink2, jacket: 'hoodie', pants: PAL.ink2, pants2: PAL.ink, shoes: 'sneaker', accessory: null },
     duty: 'Mengembangkan, menguji, dan memelihara perangkat lunak berdasarkan spesifikasi kebutuhan pengguna serta memastikan kualitas kode program.',
     duties: [
       'Menerjemahkan kebutuhan pengguna menjadi rancangan program',
@@ -571,7 +571,7 @@ export const PROFESSIONS = [
       'Aku memastikan aplikasi tidak hanya enak dilihat, tapi juga mudah dipakai siapa saja.',
       'Pekerjaan ini berhubungan erat dengan perasaan pengguna: kalau mereka bingung, berarti desainnya belum selesai. Ayo perbaiki aplikasi yang sering dikeluhkan siswa!'
     ],
-    char: { skin: PAL.skin, hair: PAL.hairD, hairStyle: 'bob', top: PAL.purple, topDark: PAL.purple2, pants: PAL.ink2, shoes: PAL.dark, acc: 'stylus' },
+    char: { skin: PAL.skin, hair: PAL.hairD, hairStyle: 'bob', shirt: PAL.carpetP, shirtDark: PAL.carpetP2, jacket: null, pants: PAL.ink2, pants2: PAL.ink, shoes: 'sneaker', accessory: 'glasses' },
     duty: 'Menggabungkan estetika visual (User Interface) dan kemudahan penggunaan (User Experience) untuk menciptakan antarmuka aplikasi yang intuitif dan menarik bagi pengguna.',
     duties: [
       'Meneliti kebutuhan dan kebiasaan pengguna',
@@ -647,7 +647,7 @@ export const PROFESSIONS = [
       'Tugas saya melindungi data dan sistem perusahaan dari serangan digital.',
       'Ancaman datang tanpa suara - sering lewat email yang tampak biasa. Hari ini ada email mencurigakan masuk ke kotak staf. Ayo kita periksa dengan hati-hati.'
     ],
-    char: { skin: PAL.skin3, hair: PAL.hairD, hairStyle: 'long', top: '#252b3d', topDark: PAL.dark2, pants: PAL.dark2, shoes: PAL.dark2, acc: 'hacker' },
+    char: { skin: PAL.skin3, hair: PAL.hairD, hairStyle: 'long', shirt: PAL.ink2, shirtDark: PAL.ink, jacket: 'hoodie', pants: PAL.ink, pants2: PAL.ink2, shoes: 'boot', accessory: null },
     duty: 'Melindungi sistem komputer, jaringan, dan data perusahaan dari serangan siber serta memantau ancaman keamanan digital.',
     duties: [
       'Memantau lalu lintas jaringan dan log keamanan',
@@ -723,7 +723,7 @@ export const PROFESSIONS = [
       'Saya mengembangkan sistem cerdas yang dapat belajar dari data - salah satunya chatbot layanan sekolah.',
       'AI bukan sulap: hasilnya sangat bergantung pada kualitas data dan etika penggunaannya. Ayo bantu saya melatih chatbot sekolah!'
     ],
-    char: { skin: PAL.skin2, hair: PAL.hairP, hairStyle: 'pony', top: PAL.off, topDark: PAL.gray3, pants: PAL.blue2, shoes: PAL.dark, acc: 'labcoat' },
+    char: { skin: PAL.skin2, hair: PAL.hairP, hairStyle: 'pony', shirt: PAL.off, shirtDark: PAL.panel2, jacket: 'blazer', pants: PAL.carpetB, pants2: PAL.carpetB2, shoes: 'formal', accessory: 'glasses' },
     duty: 'Mengembangkan sistem cerdas yang mampu belajar dan beradaptasi (Kecerdasan Buatan) untuk menyelesaikan masalah kompleks secara otomatis.',
     duties: [
       'Mengumpulkan dan menyiapkan data pelatihan',
@@ -797,8 +797,8 @@ export const LEVELS = [
     mapKey: 'floor1',
     professions: ['itsupport', 'webdev', 'graphic'],
     desc: 'Profesi yang hasil kerjanya paling nyata dan mudah kamu lihat sehari-hari.',
-    salary: 2500000,
-    salaryLabel: 'Rp 2.500.000 (ilustrasi gaji awal staf magang tetap)'
+    salary: 6500000,
+    salaryLabel: 'Gaji Pokok Rp 5.000.000 + Bonus Proyek Rp 1.500.000'
   },
   {
     id: 2,
@@ -807,8 +807,8 @@ export const LEVELS = [
     mapKey: 'floor2',
     professions: ['network', 'dba', 'data'],
     desc: 'Profesi yang menjaga "urat nadi" perusahaan: jaringan dan data.',
-    salary: 4500000,
-    salaryLabel: 'Rp 4.500.000 (ilustrasi gaji junior staff)'
+    salary: 9500000,
+    salaryLabel: 'Gaji Pokok Rp 7.500.000 + Bonus Proyek Rp 2.000.000'
   },
   {
     id: 3,
@@ -817,8 +817,8 @@ export const LEVELS = [
     mapKey: 'floor3',
     professions: ['se', 'uiux', 'cyber', 'ai'],
     desc: 'Profesi spesialis yang menuntut keahlian mendalam dan pemikiran tingkat tinggi.',
-    salary: 7000000,
-    salaryLabel: 'Rp 7.000.000 (ilustrasi gaji senior specialist)'
+    salary: 13000000,
+    salaryLabel: 'Gaji Pokok Rp 10.000.000 + Bonus Proyek Rp 3.000.000'
   }
 ];
 
@@ -837,10 +837,70 @@ export const MASTERY = {
 
 /* ------------------- ATURAN EKONOMI & PENGHARGAAN ---------------------- */
 export const ECONOMY = {
-  coinPerStar: 25,          /* koin tambahan untuk setiap bintang */
-  baseCoin: [40, 70, 110],  /* koin dasar babak 1, 2, 3 */
-  masteryCoin: 300,
-  salaryByLevel: [2500000, 4500000, 7000000]
+  goldPerStar: 15,          /* Gold tambahan untuk setiap bintang */
+  baseGold: [30, 50, 80],   /* Gold dasar babak 1, 2, 3 */
+  masteryGold: 500,         /* hadiah lulus Tes Kompetensi */
+  /* Skor akhir = (total bintang x 250) + nilai Tes Kompetensi (0-100) x 10 */
+  scorePerStar: 250,
+  scorePerMastery: 10
+};
+
+/* ------------------------- SLIP GAJI (Scene 11) ------------------------- */
+/* Diadaptasi dari mockup referensi: Gaji Pokok + Bonus Proyek = Total
+   Diterima, dengan padanan Gold (1 Gold = Rp 1.000).                        */
+export const PAYSLIPS = {
+  1: { jabatan: 'Junior Staff', gajiPokok: 5000000, bonus: 1500000 },
+  2: { jabatan: 'Senior Specialist', gajiPokok: 7500000, bonus: 2000000 },
+  3: { jabatan: 'Career Explorer', gajiPokok: 10000000, bonus: 3000000 }
+};
+
+/* ---------------------- SHOP KOSTUMISASI (Scene 11) --------------------- */
+/* Harga mengikuti mockup referensi. Item bawaan (gratis) tetap dapat
+   dipakai tanpa membeli.                                                    */
+export const SHOP_ITEMS = [
+  /* gaya rambut */
+  { id: 'hair-short', slot: 'hairStyle', value: 'short', label: 'Rambut Pendek', price: 0 },
+  { id: 'hair-spiky', slot: 'hairStyle', value: 'spiky', label: 'Rambut Baru (Spiky)', price: 2000 },
+  { id: 'hair-bob', slot: 'hairStyle', value: 'bob', label: 'Rambut Bob', price: 2000 },
+  { id: 'hair-pony', slot: 'hairStyle', value: 'pony', label: 'Rambut Kuncir', price: 2500 },
+  { id: 'hair-long', slot: 'hairStyle', value: 'long', label: 'Rambut Panjang', price: 2500 },
+  { id: 'hair-curly', slot: 'hairStyle', value: 'curly', label: 'Rambut Keriting', price: 2500 },
+  { id: 'hair-undercut', slot: 'hairStyle', value: 'undercut', label: 'Rambut Undercut', price: 2000 },
+  { id: 'hair-buzz', slot: 'hairStyle', value: 'buzz', label: 'Rambut Cepak', price: 1500 },
+  /* jaket / atasan */
+  { id: 'jkt-none', slot: 'jacket', value: null, label: 'Tanpa Jaket', price: 0 },
+  { id: 'jkt-bomber', slot: 'jacket', value: 'bomber', label: 'Jaket Bomber', price: 3500 },
+  { id: 'jkt-hoodie', slot: 'jacket', value: 'hoodie', label: 'Hoodie Developer', price: 3000 },
+  { id: 'jkt-blazer', slot: 'jacket', value: 'blazer', label: 'Blazer Formal', price: 4000 },
+  { id: 'jkt-vest', slot: 'jacket', value: 'vest', label: 'Rompi Teknisi', price: 3000 },
+  /* sepatu */
+  { id: 'sho-formal', slot: 'shoes', value: 'formal', label: 'Sepatu Formal', price: 0 },
+  { id: 'sho-kets', slot: 'shoes', value: 'sneaker', label: 'Sepatu Kets', price: 1500 },
+  { id: 'sho-boots', slot: 'shoes', value: 'boot', label: 'Sepatu Boot', price: 2000 },
+  /* aksesori */
+  { id: 'acc-none', slot: 'accessory', value: null, label: 'Tanpa Aksesori', price: 0 },
+  { id: 'acc-glasses', slot: 'accessory', value: 'glasses', label: 'Kacamata Keren', price: 1000 },
+  { id: 'acc-headset', slot: 'accessory', value: 'headset', label: 'Headset Gamer', price: 1500 }
+];
+
+export const DEFAULT_OWNED = ['hair-short', 'jkt-none', 'sho-formal', 'acc-none'];
+
+/* --------------------- LABEL SCENE (Mode Presentasi) -------------------- */
+/* Mengikuti penomoran Scene pada mockup referensi agar mudah dibandingkan
+   saat sidang/demo.                                                         */
+export const SCENES = {
+  title: 'Scene 01: Judul & Menu Utama',
+  intro: 'Scene 02: Intro Story',
+  hub: 'Scene 03: Office Hub',
+  mission: 'Scene 04: Misi Divisi',
+  missionDone: 'Scene 07: Mission Complete',
+  levelConfirm: 'Scene 08: Konfirmasi Naik Level',
+  levelUp: 'Scene 09: Level Up!',
+  specialization: 'Scene 10: Pilihan Spesialisasi Baru',
+  salary: 'Scene 11: Sistem Gaji & Shop',
+  finale: 'Scene 12: Game Completion',
+  encyclopedia: 'Ensiklopedia Karier',
+  guide: 'Panduan'
 };
 
 /* ------------------------- KUSTOMISASI PEMAIN --------------------------- */
@@ -866,10 +926,10 @@ export const SHIRT_COLORS = [
 ];
 
 export const PANTS_COLORS = [
-  { id: 'denim', label: 'Denim', pants: '#39557e' },
-  { id: 'hitam', label: 'Hitam', pants: PAL.ink2 },
-  { id: 'abu', label: 'Abu', pants: PAL.gray2 },
-  { id: 'krem', label: 'Krem', pants: '#a08a6a' }
+  { id: 'denim', label: 'Denim', pants: '#3f5f8f', pants2: '#2f4a72' },
+  { id: 'hitam', label: 'Hitam', pants: '#2b3140', pants2: '#1e2330' },
+  { id: 'abu', label: 'Abu', pants: '#6b788e', pants2: '#556173' },
+  { id: 'krem', label: 'Krem', pants: '#c2a578', pants2: '#a08a62' }
 ];
 
 export const DEFAULT_PROFILE = {
@@ -877,33 +937,50 @@ export const DEFAULT_PROFILE = {
   skin: 'terang',
   shirt: 'biru',
   pants: 'denim',
-  hair: 0
+  hair: 0,
+  hairStyle: 'short',
+  jacket: null,
+  shoes: 'formal',
+  accessory: null
 };
+
+/* Menyesuaikan pilihan dengan jenis kelamin (rambut bawaan). */
+export function defaultProfileFor(gender) {
+  return Object.assign({}, DEFAULT_PROFILE, {
+    gender,
+    hairStyle: gender === 'wanita' ? 'long' : 'short'
+  });
+}
 
 /** Membangun konfigurasi warna karakter pemain dari profil pilihan. */
 export function profileToChar(profile) {
-  const g = GENDERS.find((x) => x.id === profile.gender) || GENDERS[0];
-  const s = SKIN_TONES.find((x) => x.id === profile.skin) || SKIN_TONES[0];
-  const sh = SHIRT_COLORS.find((x) => x.id === profile.shirt) || SHIRT_COLORS[0];
-  const pt = PANTS_COLORS.find((x) => x.id === profile.pants) || PANTS_COLORS[0];
+  const p = Object.assign({}, DEFAULT_PROFILE, profile || {});
+  const g = GENDERS.find((x) => x.id === p.gender) || GENDERS[0];
+  const s = SKIN_TONES.find((x) => x.id === p.skin) || SKIN_TONES[0];
+  const sh = SHIRT_COLORS.find((x) => x.id === p.shirt) || SHIRT_COLORS[0];
+  const pt = PANTS_COLORS.find((x) => x.id === p.pants) || PANTS_COLORS[0];
+  const hairColor = g.hairOptions[(p.hair || 0) % g.hairOptions.length];
   return {
     skin: s.skin,
     skin2: s.skin2,
     skin3: s.skin3,
-    hair: g.hairOptions[profile.hair % g.hairOptions.length],
-    hairStyle: g.hairStyle,
-    top: sh.top,
-    topDark: sh.topDark,
+    hair: hairColor,
+    hairStyle: p.hairStyle || g.hairStyle,
+    shirt: sh.top,
+    shirtDark: sh.topDark,
+    jacket: p.jacket || null,
     pants: pt.pants,
-    shoes: PAL.dark,
-    acc: 'badge'
+    pants2: pt.pants2 || pt.pants,
+    shoes: p.shoes || 'formal',
+    accessory: p.accessory || null
   };
 }
 
 /* --------------------------- KARAKTER NPC HRD -------------------------- */
 export const HRD_CHAR = {
-  skin: PAL.skin, hair: PAL.hairR, hairStyle: 'bob', top: PAL.pink,
-  topDark: '#c95f88', pants: PAL.ink3, shoes: PAL.dark, acc: 'badge'
+  skin: PAL.skin, hair: PAL.hairR, hairStyle: 'long', shirt: PAL.carpetR,
+  shirtDark: PAL.carpetR2, jacket: 'blazer', pants: PAL.ink2, pants2: PAL.ink,
+  shoes: 'formal', accessory: null
 };
 
 /* ------------------------------ PANDUAN -------------------------------- */
@@ -911,10 +988,10 @@ export const HELP_PAGES = [
   {
     title: 'Cara Bermain',
     items: [
-      'Gunakan tombol arah (joystick) untuk berjalan, dan tombol A untuk berbicara/interaksi.',
-      'Dekati meja kerja yang ada penanda "!" lalu tekan A untuk memulai misi profesi.',
-      'Setiap profesi punya 3 babak misi yang makin menantang.',
-      'Tuntaskan semua misi di satu lantai untuk naik jabatan, mendapat kenaikan gaji, dan membuka lantai berikutnya.'
+      'Berjalan memakai tombol arah, W A S D, joystick sentuh di kiri bawah, atau D-pad.',
+      'Dekati meja kerja yang ada penanda "!" lalu tekan tombol A (atau ketuk layar) untuk memilih misi.',
+      'Setiap divisi punya 3 babak misi: simulasi langkah, kuis pemahaman, dan susun alur kerja.',
+      'Tuntaskan semua divisi di satu lantai (minimal Bintang 2) untuk naik jabatan, menerima slip gaji, dan membuka lantai berikutnya. Pindah lantai lewat lift di kanan bawah ruangan.'
     ]
   },
   {
@@ -927,11 +1004,20 @@ export const HELP_PAGES = [
     ]
   },
   {
+    title: 'Gold, Gaji & Shop Kostumisasi',
+    items: [
+      'Setiap misi memberi Gold (ikon koin di kanan atas HUD). Gold dipakai untuk membeli item penampilan.',
+      'Naik jabatan memunculkan Slip Gaji bulanan. Tekan TERIMA GAJI untuk menerima gaji dan bonusnya.',
+      'Buka Shop Kostumisasi dari menu Jeda (tombol II) untuk membeli rambut baru, jaket, sepatu, dan aksesori.',
+      'Item yang sudah dibeli dapat dipakai pada layar Kustomisasi Karakter.'
+    ]
+  },
+  {
     title: 'Ensiklopedia Karier',
     items: [
-      'Setiap misi yang selesai akan membuka kartu profesi di menu Ensiklopedia.',
+      'Setiap misi yang selesai akan membuka kartu profesi di menu Ensiklopedia (ikon Buku).',
       'Kartu berisi rincian tugas, jurusan kuliah, sertifikasi, dan jalur karier profesi tersebut.',
-      'Buka juga Tes Kompetensi setelah semua divisi selesai untuk menguji pemahamanmu.'
+      'Setelah ketiga lantai tuntas, buka Tes Kompetensi Karier untuk menguji pemahamanmu (nilai lulus 80).'
     ]
   }
 ];

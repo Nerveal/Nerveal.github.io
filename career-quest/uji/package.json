@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Perkakas pengujian alpha (black box) otomatis untuk game edukasi Career Quest",
   "scripts": {
-    "uji": "node uji-otomatis.mjs"
+    "uji": "node uji-otomatis.mjs",
+    "tangkapan": "node render-tangkapan.mjs"
   },
   "devDependencies": {
     "@napi-rs/canvas": "^0.1.52",
